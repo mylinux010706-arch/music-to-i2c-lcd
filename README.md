@@ -130,56 +130,6 @@ python music_to_lcd.py --load-transcript song.json --sleep-gap 5
 | `--load-transcript` | Use a transcription JSON instead of processing audio. No API call is made. |
 | `--debug` | Show the full traceback when an error happens. |
 
-Before writing the `.ino` file, the program prints the transcription and the layout so you can check them. This is the real output for `examples/sleep_demo_transcript.json`:
-
-```text
-=== TRANSCRIPTION RESULT ===
-
-Timestamp source: word-level
-
-[1.00s - 1.50s] A  (dur 0.50s, gap 1.00s)
-[2.00s - 2.50s] B  (dur 0.50s, gap 0.50s)
-[6.00s - 6.50s] C  (dur 0.50s, gap 3.50s, LCD off during gap)
-[6.80s - 7.20s] D  (dur 0.40s, gap 0.30s)
-
-=== LCD LAYOUT ===
-
-Screen 1  [1.00s - 5.50s]
-+----------------+
-|A B             |
-|                |
-+----------------+
-LCD OFF at 5.50s (no words for 3.00s)
-
-Screen 2  [6.00s - 10.20s]  LCD ON
-+----------------+
-|C D             |
-|                |
-+----------------+
-LCD OFF at 10.20s (no words for 3.00s)
-
-Generating Arduino file...
-
-Analysis complete.
-
-Audio:
-sleep_demo.wav
-
-Duration:
-00:12
-
-Detected text:
-A B C D
-
-LCD layout:
-2 screens, 6 events on a 16x2 LCD
-Backlight sleeps 2 time(s), after 3.00s without words
-
-Arduino file generated successfully:
-
-examples/sleep_demo.ino
-```
-
 ## Configuration
 
 All main settings are at the top of `music_to_lcd.py`.
